@@ -1,0 +1,31 @@
+name: Clojure Lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  simple:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v1
+      - name: Install Clojure
+        uses: DeLaGuardo/setup-clojure@master
+        with:
+          cli: '1.10.3.814'
+
+      - name: Setup clojure-lsp
+        uses: clojure-lsp/setup-clojure-lsp@v1
+        with:
+          clojure-lsp-version: 2024.03.13-13.11.00
+
+      - name: Run diagnostics
+        run: clojure-lsp diagnostics
+
+      - name: Run format
+        run: clojure-lsp format --dry"
+
+      - name: Run clean-ns
+        run: clojure-lsp clean-ns --dry"

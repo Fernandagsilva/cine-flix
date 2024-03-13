@@ -1,0 +1,4 @@
+{:cljfmt {:indents {#re ".*" ns [[:inner 0] [:inner 1]]}}
+ :auto-add-ns-to-new-files? tru
+ :linters {:clj-kondo {:level :on
+                       :report-duplicates true}}}

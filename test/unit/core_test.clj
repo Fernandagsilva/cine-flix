@@ -1,4 +1,4 @@
-(ns cine-flix.core-test
+(ns core_test
   (:require [clojure.test :refer [deftest is testing]]
             [cine-flix.core :as cine-flix]))
 
